@@ -19,8 +19,8 @@ class ViewController: UIViewController {
         labelNumer = labelNumer + 1
         labelCount.text = String(labelNumer)
         
-        TextChanges.isEditable = false
-        TextChanges.isSelectable = false
+        textChanges.isEditable = false
+        textChanges.isSelectable = false
         
         if labelNumer > 0 {
             let formatter = DateFormatter()
@@ -28,8 +28,8 @@ class ViewController: UIViewController {
             let date = formatter.string(from: Date())
             
             startText = "\(date) : значение изменено на +1 \n"
-            TextChanges.text.append(startText)
-            TextChanges.scrollRangeToVisible(NSMakeRange(TextChanges.text.count - 1, 1))
+            textChanges.text.append(startText)
+            textChanges.scrollRangeToVisible(NSMakeRange(textChanges.text.count - 1, 1))
         }
     }
     
@@ -48,37 +48,37 @@ class ViewController: UIViewController {
             formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
             let date = formatter.string(from: Date())
             startText = "\(date): попытка изменить счетчик меньше 0 \n"
-            TextChanges.text.append(startText)
-            TextChanges.scrollRangeToVisible(NSMakeRange(TextChanges.text.count - 1, 1))
+            textChanges.text.append(startText)
+            textChanges.scrollRangeToVisible(NSMakeRange(textChanges.text.count - 1, 1))
         }
         if labelNumer != 0 {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
             let date = formatter.string(from: Date())
             startText = "\(date) : значение изменено на -1 \n"
-            TextChanges.text.append(startText)
-            TextChanges.scrollRangeToVisible(NSMakeRange(TextChanges.text.count - 1, 1))
+            textChanges.text.append(startText)
+            textChanges.scrollRangeToVisible(NSMakeRange(textChanges.text.count - 1, 1))
             
             
         }
         
     }
     
-    @IBAction func deleteCount(_ sender: Any) {
+    @IBAction private func deleteCount(_ sender: Any) {
         labelCount.text = "0"
         labelNumer = 0
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
         let date = formatter.string(from: Date())
         startText = "\(date): значение сброшено \n"
-        TextChanges.text.append(startText)
-        TextChanges.scrollRangeToVisible(NSMakeRange(TextChanges.text.count - 1, 1))
+        textChanges.text.append(startText)
+        textChanges.scrollRangeToVisible(NSMakeRange(textChanges.text.count - 1, 1))
     }
     
-    @IBOutlet weak var TextChanges: UITextView!
-    var startText = "История изменений:"
     
-    // @IBOutlet weak var textDate: UITextView!
+    @IBOutlet private weak var textChanges: UITextView!
+    private var startText = "История изменений:"
+    
     
     
     
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         labelCount.text = String(labelNumer)
         super.viewDidLoad()
-        TextChanges.text = startText
+        textChanges.text = startText
         
     }
     

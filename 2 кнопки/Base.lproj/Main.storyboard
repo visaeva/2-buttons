@@ -78,8 +78,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="TextChanges" destination="dZO-on-Qf3" id="Uai-GD-zZH"/>
                         <outlet property="labelCount" destination="C4p-4j-7tn" id="3zZ-dr-xLj"/>
+                        <outlet property="textChanges" destination="dZO-on-Qf3" id="Uai-GD-zZH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
